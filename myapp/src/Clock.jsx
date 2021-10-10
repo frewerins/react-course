@@ -5,15 +5,18 @@ export class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentState: Number(props.initialState)
+      currentCounter: props.initialNumberOfCounter,
+      numberOfTicks: props.numberOfTicks ?? 10
     }
   }
 
   componentDidMount() {
     this.timer = setInterval(() => {
-      this.setState({currentState: this.state.currentState + 1})
+      this.setState({currentCounter: this.state.currentCounter + 1, numberOfTicks: this.state.numberOfTicks - 1});
+      if (this.state.numberOfTicks === 0) {
+        clearInterval(this.timer)
+      }
     }, 1000);
-    setTimeout(() => {clearInterval(this.timer)}, 10000);
   }
 
   componentWillUnmount() {
@@ -24,7 +27,7 @@ export class Clock extends React.Component {
     return (
       <div className="clock"> 
         <h2>This is the {this.props.name} counter! </h2>
-        <h1> {this.state.currentState} </h1>
+        <h1> {this.state.currentCounter} </h1>
       </div>
     )
   }

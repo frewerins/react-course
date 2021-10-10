@@ -4,8 +4,8 @@ import {Clock} from './Clock';
 function App() {
   return (
     <div className="container">
-      <Clock name="first" initialState="10"/>
-      <Clock name="second" initialState="20"/>
+      <Clock name="first" initialNumberOfCounter={0}/>
+      <Clock name="second" initialNumberOfCounter={10}/>
     </div>
   );
 }
