@@ -1,12 +1,9 @@
 import './App.css';
-import {Clock} from './Clock';
+import {Form} from './Form';
 
 function App() {
   return (
-    <div className="container">
-      <Clock name="first" initialNumberOfCounter={0}/>
-      <Clock name="second" initialNumberOfCounter={10}/>
-    </div>
+    <Form/>
   );
 }
 
