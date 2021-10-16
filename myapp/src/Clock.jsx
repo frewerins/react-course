@@ -5,15 +5,14 @@ export class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentCounter: props.initialNumberOfCounter,
-      numberOfTicks: props.numberOfTicks ?? 10
+      currentCounter: props.initialNumberOfCounter
     }
   }
 
   componentDidMount() {
     this.timer = setInterval(() => {
-      this.setState({currentCounter: this.state.currentCounter + 1, numberOfTicks: this.state.numberOfTicks - 1});
-      if (this.state.numberOfTicks === 0) {
+      this.setState({currentCounter: this.state.currentCounter + 1});
+      if (this.state.currentCounter - this.props.initialNumberOfCounter === 10) {
         clearInterval(this.timer)
       }
     }, 1000);
