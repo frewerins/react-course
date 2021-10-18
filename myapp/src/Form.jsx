@@ -1,30 +1,9 @@
 import React from "react";
-
-class FormInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
-    this.props.onInputChange(e.target.value);
-  }
-
-  render() {
-    return (
-      <div>
-        <p>{this.props.legend}</p>
-        <input value={this.props.value}
-               onChange={this.handleChange} />
-      </div>
-    );
-  }
-}
+import {FormInput} from "./FormInput";
 
 export class Form extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNameChange = (value) => { this.setState({name: value}); }
     this.handleMailChange = (value) => { this.setState({mail: value}); }
     this.handleOnClickButton = () => { this.setState({hideData: false}) };
